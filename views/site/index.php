@@ -9,7 +9,10 @@ $this->title = 'Nurse Region II';
 
         <p class="lead">เวบไซต์เครือข่ายคุณภาพการพยาบาล เขตบริการสุขภาพที่ 2</p>
 
-        <p><a class="btn btn-lg btn-success" href="#">Nurse Quality RH2</a></p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="#">ตัวชี้วัด รพศ/รพท/รพช</a>
+            <a class="btn btn-lg btn-danger" href="#">ตัวชี้วัด รพ.สต./สอ/สสช</a>
+        </p>
     </div>
 
     <div class="body-content">
