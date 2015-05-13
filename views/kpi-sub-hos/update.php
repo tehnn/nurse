@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\KpiSubHos */
 
-$this->title = 'Update Kpi Sub Hos: ' . ' ' . $model->year;
+$this->title = 'แก้ไขผลงาน';
 $this->params['breadcrumbs'][] = ['label' => 'Kpi Sub Hos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->year, 'url' => ['view', 'year' => $model->year, 'month' => $model->month, 'hospcode' => $model->hospcode]];
 $this->params['breadcrumbs'][] = 'Update';

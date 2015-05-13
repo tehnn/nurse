@@ -102,7 +102,7 @@ $js = <<<JS
                 if(res.hospname != null){
                     $('#kpisubhos-hospname').css('background-color', '#38F05F');
                 }else{
-                    $('#kpisubhos-hospname').css('background-color', '#FFF');
+                    $('#kpisubhos-hospname').css('background-color', '#ED1C24');
                 }
                 $('#kpisubhos-ampcode').val(res.amphur); 
                 // alert(res.amphur);

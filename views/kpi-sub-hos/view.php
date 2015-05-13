@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Kpi Sub Hos', 'url' => ['index']];
             ],
         ]) ?>
     </p>
-
+    
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -31,6 +31,14 @@ $this->params['breadcrumbs'][] = ['label' => 'Kpi Sub Hos', 'url' => ['index']];
             'month',
             'hospcode',
             'hospname',
+        
+        ],
+    ]) ?>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+           
            
             'q1',
             'q2',
