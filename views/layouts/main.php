@@ -26,10 +26,10 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'Nurse Region II',
+                'brandLabel' => 'Nurse KPI เขต 2',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+                    'class' => 'navbar-default navbar-fixed-top',
                 ],
             ]);
             echo Nav::widget([

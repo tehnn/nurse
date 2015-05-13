@@ -10,8 +10,12 @@ $this->title = 'Nurse Region II';
         <p class="lead">เวบไซต์เครือข่ายคุณภาพการพยาบาล เขตบริการสุขภาพที่ 2</p>
 
         <p>
-            <a class="btn btn-lg btn-primary" href="#">ตัวชี้วัด รพศ/รพท/รพช</a>
-            <a class="btn btn-lg btn-danger" href="#">ตัวชี้วัด รพ.สต./สอ/สสช</a>
+            <?php
+            $route1 = \yii\helpers\Url::to(['question-main-hos/create']);
+            $route2 = \yii\helpers\Url::to(['question-sub-hos/create']);
+            ?>
+            <a class="btn btn-lg btn-primary" href="<?=$route1?>">ตัวชี้วัด รพศ/รพท/รพช</a>
+            <a class="btn btn-lg btn-danger" href="<?=$route2?>">ตัวชี้วัด รพ.สต./สอ/สสช</a>
         </p>
     </div>
 
