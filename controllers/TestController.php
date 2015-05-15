@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+
 use Yii;
 use app\models\Cmonth;
 use PHPExcel;
@@ -10,8 +11,7 @@ use app\models\DataPcu;
 
 class TestController extends \yii\web\Controller {
 
-    
-    public function exec($sql){
+    public function exec($sql) {
         \Yii::$app->db->createCommand($sql)->execute();
     }
 
@@ -53,49 +53,50 @@ class TestController extends \yii\web\Controller {
         }
         echo '</table>' . "\n";
     }
-    
-    public function getTableColumn($table){
+
+    public function getTableColumn($table) {
         $sql = "SHOW COLUMNS FROM $table";
         //$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'data_pcu';";
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-       $cols = [];
+        $cols = [];
         foreach ($raw as $value) {
-            $cols[]= $value['Field'];
+            $cols[] = $value['Field'];
         }
         //print_r($cols);
         return $cols;
     }
-    
-  
 
     public function actionTest3() {
-        
-        $columns=$this->getTableColumn('data_pcu');
-        $columns = implode(",",$columns);
 
-        $file = "./data/pcu_2.xlsx";
+        $columns = $this->getTableColumn('data_pcu');
+        $columns = implode(",", $columns);
+
+        $file = "./data/pcu_1.xlsx";
+        
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         $objPHPExcel = $objReader->load($file);
 
         $highestColumn = $objPHPExcel->setActiveSheetIndex(2)->getHighestColumn();
         $highestRow = $objPHPExcel->setActiveSheetIndex(2)->getHighestRow();
+
         $highestColumn++;
         $all_row = array();
         for ($row = 1; $row < $highestRow + 1; $row++) {
-           
+
             $rows = array();
-            
+
             for ($column = 'A'; $column != $highestColumn; $column++) {
-                $cell[$column] = $objPHPExcel->setActiveSheetIndex(2)->getCell($column . $row)->getCalculatedValue();
+                $cell[$column] = $objPHPExcel->setActiveSheetIndex(2)
+                                ->getCell($column . $row)->getCalculatedValue();
 
                 $cell[$column] = $cell[$column] == "#DIV/0!" ? 0 : $cell[$column];
 
                 $rows[$column] = $cell[$column];
             }
-            $all_row[]=$rows;
-            
-            
+            $all_row[] = $rows;
+
+
             //$escaped_values = array_map('mysql_real_escape_string', array_values($rows));
             //$values = implode("','", $escaped_values);
             $values = implode("','", $rows);
@@ -104,13 +105,9 @@ class TestController extends \yii\web\Controller {
             $sql = "delete from data_pcu where kpi=0";
             $this->exec($sql);
             //echo "<hr>";
-            
         }
         //$columns=$this->getTableColumn('data_pcu');
-        
         //\Yii::$app->db->createCommand()->batchInsert('data_pcu',$columns,$all_row)->execute();
-        
-        
     }
 
 }
