@@ -12,18 +12,7 @@ use app\models\DataPcu;
 class TestController extends \yii\web\Controller {
 
     public function exec($sql) {
-        \Yii::$app->db->createCommand($sql)->execute();
-    }
-
-    public function actionTest1() {
-        echo "<table border=1>";
-        echo "<tr>";
-        $data = Cmonth::find()->asArray()->all();
-        foreach ($data as $d) {
-            echo "<td>" . $d['month_th'] . "</td>";
-        }
-        echo "</tr>";
-        echo "</table>";
+        return Yii::$app->db->createCommand($sql)->execute();
     }
 
     public function actionTest2() {
@@ -57,7 +46,7 @@ class TestController extends \yii\web\Controller {
     public function getTableColumn($table) {
         $sql = "SHOW COLUMNS FROM $table";
         //$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'data_pcu';";
-        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+        $raw = Yii::$app->db->createCommand($sql)->queryAll();
         $cols = [];
         foreach ($raw as $value) {
             $cols[] = $value['Field'];
@@ -72,7 +61,7 @@ class TestController extends \yii\web\Controller {
         $columns = implode(",", $columns);
 
         $file = "./data/pcu_1.xlsx";
-        
+
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         $objPHPExcel = $objReader->load($file);
@@ -102,10 +91,11 @@ class TestController extends \yii\web\Controller {
             $values = implode("','", $rows);
             $sql = "REPLACE INTO data_pcu ($columns) VALUES ('$values')";
             $this->exec($sql);
-            $sql = "delete from data_pcu where kpi=0";
-            $this->exec($sql);
+
             //echo "<hr>";
         }
+        $sql = "delete from data_pcu where kpi=0";
+        $this->exec($sql);
         //$columns=$this->getTableColumn('data_pcu');
         //\Yii::$app->db->createCommand()->batchInsert('data_pcu',$columns,$all_row)->execute();
     }
