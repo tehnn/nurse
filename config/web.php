@@ -2,12 +2,24 @@
 
 $params = require(__DIR__ . '/params.php');
 
+
+Yii::setAlias('themes','../themes');
+
 $config = [
     'id' => 'basic',
+    'name'=>'Nurse KPI',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'language'=>'th',
-    'components' => [        
+    'language' => 'th',
+    'components' => [
+        /*
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                ],
+            ],
+        ],*/
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '5dBy-Ymt2Zo3T5JXJK1bZHHgrQenC6nF',
