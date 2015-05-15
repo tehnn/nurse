@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers;
-
+use Yii;
 use app\models\Cmonth;
 use PHPExcel;
 use PHPExcel_IOFactory;
@@ -66,19 +66,14 @@ class TestController extends \yii\web\Controller {
         return $cols;
     }
     
-    public function actionGet(){
-        $data = $this->getTableColumn('chos');
-        //print_r($data);
-        $columns = implode(",", $data);
-        echo $columns;
-    }
+  
 
     public function actionTest3() {
         
         $columns=$this->getTableColumn('data_pcu');
         $columns = implode(",",$columns);
 
-        $file = "./data/pcu_1.xlsx";
+        $file = "./data/pcu_2.xlsx";
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         $objPHPExcel = $objReader->load($file);
@@ -87,10 +82,10 @@ class TestController extends \yii\web\Controller {
         $highestRow = $objPHPExcel->setActiveSheetIndex(2)->getHighestRow();
         $highestColumn++;
         $all_row = array();
-        for ($row = 2; $row < $highestRow + 1; $row++) {
-            //$row=2;
+        for ($row = 1; $row < $highestRow + 1; $row++) {
+           
             $rows = array();
-            //$cell=[];
+            
             for ($column = 'A'; $column != $highestColumn; $column++) {
                 $cell[$column] = $objPHPExcel->setActiveSheetIndex(2)->getCell($column . $row)->getCalculatedValue();
 
@@ -105,6 +100,8 @@ class TestController extends \yii\web\Controller {
             //$values = implode("','", $escaped_values);
             $values = implode("','", $rows);
             $sql = "REPLACE INTO data_pcu ($columns) VALUES ('$values')";
+            $this->exec($sql);
+            $sql = "delete from data_pcu where kpi=0";
             $this->exec($sql);
             //echo "<hr>";
             
