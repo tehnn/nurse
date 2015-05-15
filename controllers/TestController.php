@@ -10,6 +10,11 @@ use app\models\DataPcu;
 
 class TestController extends \yii\web\Controller {
 
+    
+    public function exec($sql){
+        \Yii::$app->db->createCommand($sql)->execute();
+    }
+
     public function actionTest1() {
         echo "<table border=1>";
         echo "<tr>";
@@ -48,10 +53,32 @@ class TestController extends \yii\web\Controller {
         }
         echo '</table>' . "\n";
     }
+    
+    public function getTableColumn($table){
+        $sql = "SHOW COLUMNS FROM $table";
+        //$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'data_pcu';";
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+       $cols = [];
+        foreach ($raw as $value) {
+            $cols[]= $value['Field'];
+        }
+        //print_r($cols);
+        return $cols;
+    }
+    
+    public function actionGet(){
+        $data = $this->getTableColumn('chos');
+        //print_r($data);
+        $columns = implode(",", $data);
+        echo $columns;
+    }
 
     public function actionTest3() {
+        
+        $columns=$this->getTableColumn('data_pcu');
+        $columns = implode(",",$columns);
 
-        $file = "./data/pcu.xlsx";
+        $file = "./data/pcu_1.xlsx";
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         $objPHPExcel = $objReader->load($file);
@@ -71,13 +98,22 @@ class TestController extends \yii\web\Controller {
 
                 $rows[$column] = $cell[$column];
             }
-           echo "<pre>"; print_r($rows); echo "<hr>";
+            $all_row[]=$rows;
             
-            //if($row <> 1)
-            //$all_row[] = $rows;
+            
+            //$escaped_values = array_map('mysql_real_escape_string', array_values($rows));
+            //$values = implode("','", $escaped_values);
+            $values = implode("','", $rows);
+            $sql = "REPLACE INTO data_pcu ($columns) VALUES ('$values')";
+            $this->exec($sql);
+            //echo "<hr>";
+            
         }
-        //echo "<pre>";
-        //print_r($all_row);
+        //$columns=$this->getTableColumn('data_pcu');
+        
+        //\Yii::$app->db->createCommand()->batchInsert('data_pcu',$columns,$all_row)->execute();
+        
+        
     }
 
 }
