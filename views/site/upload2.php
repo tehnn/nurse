@@ -30,9 +30,8 @@ use yii\widgets\ActiveForm;
          <?php if ($filename_old <> ''): ?>
             <h2>ท่านส่งข้อมูล <span style="background-color: red;color: whitesmoke"><?= $filename_old ?> </span>เรียบร้อยแล้ว !!!</h2>
         <?php else: ?>
-            แบบรายงานตัวชี้วัดสำหรับ รพ.สต/สอ/สสช 
-            
-            <a href="pcu.xlsx" class="btn btn-danger" target="_blank"><i class="fa fa-download"></i> ดาวน์โหลด</a>
+            แบบรายงานตัวชี้วัดสำหรับ รพ.สต/สอ/สสช            
+             <a href="pcu.xlsx"  target="_blank"> <i class="glyphicon glyphicon-download"> </i> </a>
         <?php endif; ?>
     </div>
 </div><!-- /.box -->
