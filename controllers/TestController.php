@@ -16,11 +16,13 @@ class TestController extends \yii\web\Controller {
     }
 
     public function actionTest2() {
-        $file = "./data/pcu.xlsx";
+        $file = "./data/hos.xlsx";
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         $objPHPExcel = $objReader->load($file);
         $objWorksheet = $objPHPExcel->setActiveSheetIndex(2);
+        //echo "<pre>";
+        //print_r($objWorksheet->getRowIterator()->current());
 //objWorksheet = $objPHPExcel->getActiveSheet();
         echo '<table border=1>' . "\n";
         foreach ($objWorksheet->getRowIterator() as $row) {
@@ -99,5 +101,51 @@ class TestController extends \yii\web\Controller {
         //$columns=$this->getTableColumn('data_pcu');
         //\Yii::$app->db->createCommand()->batchInsert('data_pcu',$columns,$all_row)->execute();
     }
+    
+     public function actionTest4() {
 
+        $columns = $this->getTableColumn('data_hos');
+        $columns = implode(",", $columns);
+
+        $file = "./data/hos.xlsx";
+
+        $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+        $objReader->setReadDataOnly(true);
+        $objPHPExcel = $objReader->load($file);
+
+        $highestColumn = $objPHPExcel->setActiveSheetIndex(2)->getHighestColumn();
+        $highestRow = $objPHPExcel->setActiveSheetIndex(2)->getHighestRow();
+
+        $highestColumn++;
+        $all_row = array();
+        for ($row = 1; $row < $highestRow + 1; $row++) {
+
+            $rows = array();
+
+            for ($column = 'A'; $column != $highestColumn; $column++) {
+                $cell[$column] = $objPHPExcel->setActiveSheetIndex(2)
+                                ->getCell($column . $row)->getCalculatedValue();
+
+                $cell[$column] = $cell[$column] == "#DIV/0!" ? 0 : $cell[$column];
+
+                $rows[$column] = $cell[$column];
+            }
+            $all_row[] = $rows;
+
+
+            //$escaped_values = array_map('mysql_real_escape_string', array_values($rows));
+            //$values = implode("','", $escaped_values);
+            $values = implode("','", $rows);
+            $sql = "REPLACE INTO data_hos ($columns) VALUES ('$values')";
+            $this->exec($sql);
+
+            //echo "<hr>";
+        }
+        $sql = "delete from data_hos where kpi=0";
+        $this->exec($sql);
+        //$columns=$this->getTableColumn('data_pcu');
+        //\Yii::$app->db->createCommand()->batchInsert('data_pcu',$columns,$all_row)->execute();
+    }
+
+    
 }
