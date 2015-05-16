@@ -19,14 +19,16 @@ use yii\helpers\Url;
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
 
-            
+
             <li class="header">รายการ</li>
-            <li><a href="<?= Url::to(['template']) ?>"><i class="fa fa-circle-o text-red"></i> <span>แบบรายงาน</span></a></li>
-            <li><a href="<?= Url::to(['upload']) ?>"><i class="fa fa-circle-o text-yellow"></i> <span>ส่งข้อมูล</span></a></li>
+            <li><a href="<?= Url::to(['index']) ?>"><i class="fa fa-circle-o text-orange"></i> <span>หน้าหลัก</span></a></li>
+
+            <li><a href="<?= Url::to(['upload1']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>ส่งข้อมูล (รพศ/รพท/รพช.)</span></a></li>
+            <li><a href="<?= Url::to(['upload2']) ?>"><i class="fa fa-circle-o text-yellow"></i> <span>ส่งข้อมูล (รพ.สต/สอ/สสช.)</span></a></li>
 
             <li class="header">ค้นหา</li>
             <li><a href="#"><i class="fa fa-circle-o text-primary"></i> <span>สถานบริการ</span></a></li>
-            
+
             <li class="header">จังหวัด</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>พิษณุโลก</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>อุตรดิตถ์</span></a></li>

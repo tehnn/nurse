@@ -95,7 +95,29 @@ class SiteController extends Controller {
         return $this->render('template');
     }
 
-    public function actionUpload() {
+    public function actionUpload1() {
+
+        $model = new UploadForm();
+        $filename_old = "";
+        $filename_new = "";
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if ($model->file && $model->validate()) {
+                $filename_old = $model->file->baseName . '.' . $model->file->extension;
+                $filename_new = $model->file->baseName . '_' . date('YmdHis') . '.' . $model->file->extension;
+                $model->file->saveAs('uploads/' . $filename_new);
+                $this->addkpi("./uploads/$filename_new", "data_hos");
+            }
+        }
+
+        return $this->render('upload1', [
+                    'model' => $model,
+                    'filename_old' => $filename_old
+        ]);
+    }
+    
+       public function actionUpload2() {
 
         $model = new UploadForm();
         $filename_old = "";
@@ -111,7 +133,7 @@ class SiteController extends Controller {
             }
         }
 
-        return $this->render('upload', [
+        return $this->render('upload2', [
                     'model' => $model,
                     'filename_old' => $filename_old
         ]);
