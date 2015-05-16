@@ -2,17 +2,23 @@
 
 namespace app\controllers;
 
-use yii;
-use app\models\CsubHos;
+use Yii;
+
 
 class AjaxController extends \yii\web\Controller {
 
-   
+     public function queryall($sql) {
+        return Yii::$app->db->createCommand($sql)->queryAll();
+    }
 
-    public function actionGetHospname($hospcode = null) {
-        yii::$app->response->format = 'json';
-        $data = CsubHos::find()->asArray()->where(['hospcode' => $hospcode])->one();
-        return $data;
+    
+  
+    
+    public function actionFind($word){
+        Yii::$app->response->format = "json";
+        $sql = "SELECT t.* from chospital t where t.hosname like '%$word%' or t.hoscode like '%$word%' ";
+        $raw = $this->queryall($sql);
+        return $raw;
     }
 
 }

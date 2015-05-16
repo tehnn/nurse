@@ -9,8 +9,8 @@
     <div class="box-body">
         <!--เริ่ม content-->
         ชื่อสถานบริการ: <input type="text" id="find" name="find">
-        <div id="result">
-            sss
+        <hr>
+        <div id="show">
             
         </div>
         
@@ -24,11 +24,33 @@
 </div><!-- /.box -->
 
 <?php
+
+$route1 = \yii\helpers\Url::to(['ajax/find']);
+
 $js = <<<JS
   
     $('#find').keyup(function(event){
         if(event.keyCode == 13){
-            alert(this.value);
+            //alert(this.value);
+            
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "$route1",
+            cache: false,
+            data: "word="+this.value,
+            success: function(data){ 
+                    var d='';
+                    $.each(data, function(i){
+                        //alert(data[i].hosname);
+                        d += '<b>'+data[i].hoscode+'</b> , <b>'+data[i].hosname+'</b> , '+data[i].changwatname+' , '+data[i].ampurname+'<br>';
+                    });
+                   // 
+                   $('#show').html(d);                       
+              
+            }
+        });
+        
         }
     });
         
