@@ -27,8 +27,12 @@ use yii\widgets\ActiveForm;
         <!--จบ content-->
     </div>
     <div class="box-footer">
-        <?php if ($filename_old <> ''): ?>
+         <?php if ($filename_old <> ''): ?>
             <h2>ท่านส่งข้อมูล <span style="background-color: red;color: whitesmoke"><?= $filename_old ?> </span>เรียบร้อยแล้ว !!!</h2>
+        <?php else: ?>
+            แบบรายงานตัวชี้วัดสำหรับ รพศ/รพท/รพช 
+            
+            <a href="pcu.xlsx" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> ดาวน์โหลด</a>
         <?php endif; ?>
     </div>
 </div><!-- /.box -->
