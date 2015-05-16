@@ -95,7 +95,7 @@ class SiteController extends Controller {
         return $this->render('template');
     }
 
-    public function actionUpload1() {
+    public function actionUpload1() {// hos
 
         $model = new UploadForm();
         $filename_old = "";
@@ -106,8 +106,8 @@ class SiteController extends Controller {
             if ($model->file && $model->validate()) {
                 $filename_old = $model->file->baseName . '.' . $model->file->extension;
                 $filename_new = $model->file->baseName . '_' . date('YmdHis') . '.' . $model->file->extension;
-                $model->file->saveAs('uploads/' . $filename_new);
-                $this->addkpi("./uploads/$filename_new", "data_hos");
+                $model->file->saveAs('uploads/hos/' . $filename_new);
+                $this->addkpi("./uploads/hos/$filename_new", "data_hos");
             }
         }
 
@@ -117,7 +117,7 @@ class SiteController extends Controller {
         ]);
     }
     
-       public function actionUpload2() {
+       public function actionUpload2() { //pcu
 
         $model = new UploadForm();
         $filename_old = "";
@@ -128,8 +128,8 @@ class SiteController extends Controller {
             if ($model->file && $model->validate()) {
                 $filename_old = $model->file->baseName . '.' . $model->file->extension;
                 $filename_new = $model->file->baseName . '_' . date('YmdHis') . '.' . $model->file->extension;
-                $model->file->saveAs('uploads/' . $filename_new);
-                $this->addkpi("./uploads/$filename_new", "data_pcu");
+                $model->file->saveAs('uploads/pcu/' . $filename_new);
+                $this->addkpi("./uploads/pcu/$filename_new", "data_pcu");
             }
         }
 
