@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 
 Yii::setAlias('themes','../themes');
-Yii::setAlias('template','../template');
+//Yii::setAlias('template','../template');
 
 $config = [
     'id' => 'basic',

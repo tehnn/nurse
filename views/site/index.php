@@ -1,17 +1,38 @@
+<?php
+use yii\bootstrap\Tabs;
+?>
 <!-- Default box -->
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">ทดสอบ</h3>
+        <h3 class="box-title">ตัวชี้วัดคุณภาพการพยาบาลเขตสุขภาพที่ 2</h3>
         <div class="box-tools pull-right">
             <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
         </div>
     </div>
     <div class="box-body">
         <!--เริ่ม content-->
-        
-        
-        
-        
+
+        <?php
+        echo Tabs::widget([
+            'items' => [
+                [
+                    'label' => 'โรงพยาบาล',
+                    'icon' => 'user',
+                   'content' => $this->render('tab_hos'),
+                    'active' => true
+                ],
+                [
+                    'label' => 'หน่วยปฐมภูมิ',
+                    'content' => $this->render('tab_pcu'),
+                    //'headerOptions' => [...],
+                    'options' => ['id' => 'myveryownID'],
+                ],
+                
+            ],
+        ]);
+        ?>
+
+
 
         <!--จบ content-->
     </div>
