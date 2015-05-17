@@ -16,6 +16,10 @@ class AjaxController extends \yii\web\Controller {
     
     public function actionFind($word){
         Yii::$app->response->format = "json";
+        if(trim($word)==''){
+            return [];  
+        }
+        
         $sql = "SELECT t.* from chospital t where t.hosname like '%$word%' or t.hoscode like '%$word%' ";
         $raw = $this->queryall($sql);
         return $raw;

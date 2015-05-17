@@ -32,7 +32,7 @@ $js = <<<JS
     $('#find').keyup(function(event){
         if(event.keyCode == 13){
             //alert(this.value);
-            
+        $('#show').html('กำลังค้นหา...');   
         $.ajax({
             type: "GET",
             dataType: "json",

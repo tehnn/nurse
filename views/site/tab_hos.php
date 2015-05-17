@@ -3,7 +3,9 @@
     <td>ลำดับ</td><td>ตัวชีวัด</td><td>ร้อยละ</td>
     </thead>
     <tbody>
-    <td>1</td><td>aaaaa</td><td>23</td>
+    <td>1</td>
+    <td style="word-break:break-all; width: 70%">aaaaa</td>
+    <td>23</td>
     </tbody>
     
 </table>
