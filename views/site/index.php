@@ -1,4 +1,5 @@
 <?php
+
 use yii\bootstrap\Tabs;
 ?>
 <!-- Default box -->
@@ -18,16 +19,22 @@ use yii\bootstrap\Tabs;
                 [
                     'label' => 'โรงพยาบาล',
                     'icon' => 'user',
-                   'content' => $this->render('tab_hos'),
-                    'active' => true
+                    'content' => $this->render('tab_hos'),
+                    'active' => true,
+                    'options' => ['id' => 'tab0'],
                 ],
                 [
                     'label' => 'หน่วยปฐมภูมิ',
                     'content' => $this->render('tab_pcu'),
                     //'headerOptions' => [...],
-                    'options' => ['id' => 'myveryownID'],
+                    'options' => ['id' => 'tab1'],
                 ],
-                
+                [
+                    'label' => 'ขาดส่ง',
+                    'content' => '',
+                    //'headerOptions' => [...],
+                    'options' => ['id' => 'tab2'],
+                ],
             ],
         ]);
         ?>
