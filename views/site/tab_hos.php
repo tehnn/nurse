@@ -32,12 +32,12 @@ $raw = \Yii::$app->db->createCommand($sql)->queryAll();
         <td style="word-break:break-all; width: 50%">
            <?=$value['topic']?>
         </td>
-        <td style="text-align: center">23.05</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center" ><b>23</b></td>
+        <td style="text-align: center"><?=$value['พล']?></td>
+        <td style="text-align: center"><?=$value['พล']?></td>
+        <td style="text-align: center"><?=$value['พล']?></td>
+        <td style="text-align: center"><?=$value['พล']?></td>
+        <td style="text-align: center"><?=$value['พล']?></td>
+        <td style="text-align: center" ><b><?=$value['พล']?></b></td>
     </tr>
 <?php endforeach;?>
 </tbody>
