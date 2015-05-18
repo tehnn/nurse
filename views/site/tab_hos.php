@@ -2,7 +2,7 @@
 <div class="box box-info box-body">ปีงบประมาณ 2558</div>
 <table class="table table-bordered table-striped table-responsive">
     <thead>
-    <td>ลำดับ</td>
+    <td >ลำดับ</td>
     <td >ตัวชีวัด</td>
     <td style="text-align: center">พล</td>
     <td style="text-align: center">พช</td>
@@ -13,26 +13,24 @@
 </thead>
 <tbody>
 
-    <tr >
-        <td  style="width: 1%">1</td>
-        <td style="word-break:break-all; width: 50%">
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </td>
-
-        <td style="text-align: center">23.05</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center">23</td>
-        <td style="text-align: center" ><b>23</b></td>
-    </tr>
-
+    
+<?php
+$sql = "SELECT t.id,t.topic
+,0 as 'พล'
+,0 as 'พช' 
+,0 as 'อต'
+,0 as 'สท'
+,0 as 'ตก'
+,0 as 'รวม' 
+from topic_hos t";
+$raw = \Yii::$app->db->createCommand($sql)->queryAll();
+?>
+<?php foreach ($raw as $value):?>
 
     <tr>
-        <td>1</td>
-        <td>
-            bbbbbbbb
+        <td style="width: 1%"><?=$value['id']?></td>
+        <td style="word-break:break-all; width: 50%">
+           <?=$value['topic']?>
         </td>
         <td style="text-align: center">23.05</td>
         <td style="text-align: center">23</td>
@@ -41,6 +39,7 @@
         <td style="text-align: center">23</td>
         <td style="text-align: center" ><b>23</b></td>
     </tr>
+<?php endforeach;?>
 </tbody>
 
 </table>
