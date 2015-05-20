@@ -1,7 +1,8 @@
 <br>
 <div class="box box-info box-body">ปีงบประมาณ 2558</div>
 <table class="table table-bordered table-striped table-responsive table-hover">
-    <thead>
+      <thead>
+        <tr style="background-color: orange">
     <td >ลำดับ</td>
     <td >ตัวชีวัด</td>
     <td style="text-align: center">พล</td>
@@ -10,7 +11,8 @@
     <td style="text-align: center">สท</td>
     <td style="text-align: center">ตก</td>
     <td style="text-align: center"><b>รวม</b></td>
-</thead>
+        </tr>
+    </thead>
 <tbody>
 
     
