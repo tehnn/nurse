@@ -2,7 +2,7 @@
 <div class="box box-info box-body">ปีงบประมาณ 2558</div>
 <table class="table table-bordered table-striped table-responsive table-hover">
       <thead>
-        <tr style="background-color: orange">
+        <tr style="background-color: gold">
     <td >ลำดับ</td>
     <td >ตัวชีวัด</td>
     <td style="text-align: center">พล</td>

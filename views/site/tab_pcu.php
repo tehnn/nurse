@@ -20,12 +20,12 @@
 $sql = "
 SELECT t.id,t.topic
 
-,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =65) as 'พล'
-,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67) as 'พช' 
-,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =53) as 'อต'
-,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =64) as 'สท'
-,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =63) as 'ตก'
-,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id) as 'รวม' 
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_pcu d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =65) as 'พล'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_pcu d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67) as 'พช' 
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_pcu d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =53) as 'อต'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_pcu d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =64) as 'สท'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_pcu d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =63) as 'ตก'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_pcu d WHERE d.kpi =t.id) as 'รวม' 
 
 from topic_pcu t
 

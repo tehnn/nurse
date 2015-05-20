@@ -33,5 +33,7 @@ use yii\widgets\ActiveForm;
             แบบรายงานตัวชี้วัดสำหรับ รพศ/รพท/รพช              
             <a href="hos.xlsx"  target="_blank">ดาวน์โหลด</a>
         <?php endif; ?>
+            <hr>
+            <p style="color : orangered">***หากมีข้อติดขัด ประสานผู้พัฒนาโปรแกรมโดยตรง นายอุเทน จาดยางโทน 0812841147</p>
     </div>
 </div><!-- /.box -->
