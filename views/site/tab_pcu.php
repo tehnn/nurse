@@ -15,30 +15,36 @@
 
     
 <?php
-$sql = "SELECT t.id,t.topic
-,0 as 'พล'
-,0 as 'พช' 
-,0 as 'อต'
-,0 as 'สท'
-,0 as 'ตก'
-,0 as 'รวม' 
-from topic_pcu t";
+$sql = "
+SELECT t.id,t.topic
+
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =65) as 'พล'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67) as 'พช' 
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =53) as 'อต'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =64) as 'สท'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =63) as 'ตก'
+,(SELECT IF(t.id not in (6,7,8,9),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id) as 'รวม' 
+
+from topic_pcu t
+
+";
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 ?>
 <?php foreach ($raw as $value):?>
 
-    <tr>
+     <tr>
         <td style="width: 1%"><?=$value['id']?></td>
         <td style="word-break:break-all; width: 50%">
            <?=$value['topic']?>
         </td>
         <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center" ><b><?=$value['พล']?></b></td>
+        <td style="text-align: center"><?=$value['พช']?></td>
+        <td style="text-align: center"><?=$value['อต']?></td>
+        <td style="text-align: center"><?=$value['สท']?></td>
+        <td style="text-align: center"><?=$value['ตก']?></td>
+        <td style="text-align: center" ><b><?=$value['รวม']?></b></td>
     </tr>
+    
 <?php endforeach;?>
 </tbody>
 

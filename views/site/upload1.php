@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
             <h2>ท่านส่งข้อมูล <span style="background-color: red;color: whitesmoke"><?= $filename_old ?> </span>เรียบร้อยแล้ว !!!</h2>
         <?php else: ?>
             แบบรายงานตัวชี้วัดสำหรับ รพศ/รพท/รพช              
-            <a href="hos.xlsx"  target="_blank"> <i class="glyphicon glyphicon-download"> </i> </a>
+            <a href="hos.xlsx"  target="_blank">ดาวน์โหลด</a>
         <?php endif; ?>
     </div>
 </div><!-- /.box -->

@@ -1,6 +1,6 @@
 <br>
 <div class="box box-info box-body">ปีงบประมาณ 2558</div>
-<table class="table table-bordered table-striped table-responsive">
+<table class="table table-bordered table-striped table-responsive table-hover">
     <thead>
     <td >ลำดับ</td>
     <td >ตัวชีวัด</td>
@@ -15,14 +15,20 @@
 
     
 <?php
-$sql = "SELECT t.id,t.topic
-,0 as 'พล'
-,0 as 'พช' 
-,0 as 'อต'
-,0 as 'สท'
-,0 as 'ตก'
-,0 as 'รวม' 
-from topic_hos t";
+$sql = "
+    
+SELECT t.id,t.topic
+
+,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =65) as 'พล'
+,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67) as 'พช' 
+,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =53) as 'อต'
+,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =64) as 'สท'
+,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =63) as 'ตก'
+,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) from data_hos d WHERE d.kpi =t.id) as 'รวม' 
+
+from topic_hos t
+
+";
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 ?>
 <?php foreach ($raw as $value):?>
@@ -33,11 +39,11 @@ $raw = \Yii::$app->db->createCommand($sql)->queryAll();
            <?=$value['topic']?>
         </td>
         <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center"><?=$value['พล']?></td>
-        <td style="text-align: center" ><b><?=$value['พล']?></b></td>
+        <td style="text-align: center"><?=$value['พช']?></td>
+        <td style="text-align: center"><?=$value['อต']?></td>
+        <td style="text-align: center"><?=$value['สท']?></td>
+        <td style="text-align: center"><?=$value['ตก']?></td>
+        <td style="text-align: center" ><b><?=$value['รวม']?></b></td>
     </tr>
 <?php endforeach;?>
 </tbody>
