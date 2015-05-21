@@ -27,7 +27,7 @@ use yii\helpers\Url;
             <li><a href="<?= Url::to(['site/upload2']) ?>"><i class="fa fa-circle-o text-yellow"></i> <span>ส่งข้อมูล (รพ.สต/สอ/สสช.)</span></a></li>
 
             <li class="header">ค้นหา</li>
-            <li><a href="<?= Url::to(['find']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>สถานบริการ</span></a></li>
+            <li><a href="<?= Url::to(['site/find']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>สถานบริการ</span></a></li>
 
             <li class="header">จังหวัด</li>
 
