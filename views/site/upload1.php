@@ -34,6 +34,6 @@ use yii\widgets\ActiveForm;
             <a href="hos.xlsx"  target="_blank">ดาวน์โหลด</a>
         <?php endif; ?>
             <hr>
-            <p style="color : orangered">***หากมีข้อติดขัด ประสานผู้พัฒนาโปรแกรมโดยตรง นายอุเทน จาดยางโทน 0812841147</p>
+            <p style="color : orangered">***หากมีข้อติดขัด ประสานผู้พัฒนาโปรแกรมโดยตรง นายอุเทน จาดยางโทน 0812841147 ,tehnnn@gmail.com</p>
     </div>
 </div><!-- /.box -->

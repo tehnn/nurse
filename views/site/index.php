@@ -24,7 +24,7 @@ use yii\bootstrap\Tabs;
                     'options' => ['id' => 'tab0'],
                 ],
                 [
-                    'label' => 'หน่วยปฐมภูมิ',
+                    'label' => 'รพ.สต/สอ',
                     'content' => $this->render('tab_pcu'),
                     //'headerOptions' => [...],
                     'options' => ['id' => 'tab1'],
