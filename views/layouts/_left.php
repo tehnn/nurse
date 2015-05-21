@@ -33,10 +33,10 @@ use yii\helpers\Url;
 
         
             <li><a href="<?= Url::to(['phitlok/index']) ?>"><i class="fa fa-circle-o text-red"></i> <span>พิษณุโลก</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>อุตรดิตถ์</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>เพชรบูรณ์</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-blue"></i> <span>สุโขทัย</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-danger"></i> <span>ตาก</span></a></li>
+            <li><a href="<?= Url::to(['uddit/index']) ?>"><i class="fa fa-circle-o text-yellow"></i> <span>อุตรดิตถ์</span></a></li>
+            <li><a href="<?= Url::to(['phetchaboon/index']) ?>"><i class="fa fa-circle-o text-aqua"></i> <span>เพชรบูรณ์</span></a></li>
+            <li><a href="<?= Url::to(['sukotai/index']) ?>"><i class="fa fa-circle-o text-blue"></i> <span>สุโขทัย</span></a></li>
+            <li><a href="<?= Url::to(['tak/index']) ?>"><i class="fa fa-circle-o text-danger"></i> <span>ตาก</span></a></li>
 
 
         </ul>

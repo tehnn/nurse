@@ -31,7 +31,7 @@ use yii\bootstrap\Tabs;
                 ],
                 [
                     'label' => 'ขาดส่ง',
-                    'content' => '',
+                     'content' => $this->render('tab_no_send'),
                     //'headerOptions' => [...],
                     'options' => ['id' => 'tab2'],
                 ],
