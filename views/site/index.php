@@ -29,12 +29,7 @@ use yii\bootstrap\Tabs;
                     //'headerOptions' => [...],
                     'options' => ['id' => 'tab1'],
                 ],
-                [
-                    'label' => 'ขาดส่ง',
-                    'content' => '',
-                    //'headerOptions' => [...],
-                    'options' => ['id' => 'tab2'],
-                ],
+               
             ],
         ]);
         ?>
