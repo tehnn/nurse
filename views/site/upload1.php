@@ -1,6 +1,8 @@
 <?php
 
 use yii\widgets\ActiveForm;
+use app\models\Onoof;
+use app\models\News;
 ?>
 
 <!-- Default box -->
@@ -14,14 +16,29 @@ use yii\widgets\ActiveForm;
     <div class="box-body">
         <!--เริ่ม content-->
 
-        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+        <div class="alert alert-success">
+            <h3>
+                <?php
+                $news = News::find()->asArray()->one();
+                echo $news['message'];
+                ?>
+            </h3>
+        </div>
 
-        <?= $form->field($model, 'file')->fileInput() ?>
+        <?php
+        $status = Onoof::find()->asArray()->one();
+        $status = $status['status'] == 'on';
+        if ($status):
+            ?>
 
-        <button><i class="fa fa-dot-circle-o"></i> ส่งข้อมูล</button>
+            <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-        <?php ActiveForm::end() ?>
+            <?= $form->field($model, 'file')->fileInput() ?>
 
+            <button><i class="fa fa-dot-circle-o"></i> ส่งข้อมูล</button>
+
+            <?php ActiveForm::end() ?>
+        <?php endif; ?>
 
 
         <!--จบ content-->
@@ -31,9 +48,9 @@ use yii\widgets\ActiveForm;
             <h2>ท่านส่งข้อมูล <span style="background-color: red;color: whitesmoke"><?= $filename_old ?> </span>เรียบร้อยแล้ว !!!</h2>
         <?php else: ?>
             แบบรายงานตัวชี้วัดสำหรับ รพศ/รพท/รพช              
-            <a href="hos.xlsx"  target="_blank">ดาวน์โหลด</a>
+            <a href="hosx.xlsx"  target="_blank">ดาวน์โหลด</a>
         <?php endif; ?>
-            <hr>
-            <p style="color : orangered">***หากมีข้อติดขัด ประสานผู้พัฒนาโปรแกรมโดยตรง นายอุเทน จาดยางโทน 0812841147 ,tehnnn@gmail.com</p>
+        <hr>
+        <p style="color : orangered">***หากมีข้อติดขัด ประสานผู้พัฒนาโปรแกรมโดยตรง นายอุเทน จาดยางโทน 0812841147 ,tehnnn@gmail.com</p>
     </div>
 </div><!-- /.box -->
