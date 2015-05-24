@@ -16,7 +16,7 @@ use app\models\News;
     <div class="box-body">
         <!--เริ่ม content-->
 
-        <div class="alert alert-success">
+        <div class="alert alert-danger">
             <h3>
                 <?php
                 $news = News::find()->asArray()->one();
@@ -48,9 +48,9 @@ use app\models\News;
             <h2>ท่านส่งข้อมูล <span style="background-color: red;color: whitesmoke"><?= $filename_old ?> </span>เรียบร้อยแล้ว !!!</h2>
         <?php else: ?>
             แบบรายงานตัวชี้วัดสำหรับ รพศ/รพท/รพช              
-            <a href="hosx.xlsx"  target="_blank">ดาวน์โหลด</a>
+            <a href="hos.xlsx"  target="_blank">ดาวน์โหลด</a>
         <?php endif; ?>
         <hr>
-        <p style="color : orangered">***หากมีข้อติดขัด ประสานผู้พัฒนาโปรแกรมโดยตรง นายอุเทน จาดยางโทน 0812841147 ,tehnnn@gmail.com</p>
+        <p style="color : orangered">***หากมีข้อติดขัดในการส่งข้อมูล ประสานผู้พัฒนาโปรแกรมที่ tehnnn@gmail.com</p>
     </div>
 </div><!-- /.box -->
