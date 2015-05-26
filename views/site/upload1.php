@@ -51,6 +51,8 @@ use app\models\News;
             <a href="hos.xlsx"  target="_blank">ดาวน์โหลด</a>
         <?php endif; ?>
         <hr>
-        <p style="color : orangered">***หากมีข้อติดขัดในการส่งข้อมูล ประสานผู้พัฒนาโปรแกรมที่ tehnnn@gmail.com</p>
+        <?php
+        echo $this->render('support');
+        ?>
     </div>
 </div><!-- /.box -->
