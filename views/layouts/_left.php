@@ -27,7 +27,7 @@ use yii\helpers\Url;
             <li><a href="<?= Url::to(['site/upload2']) ?>"><i class="fa fa-circle-o text-yellow"></i> <span>ส่งข้อมูล (รพ.สต/สอ/สสช.)</span></a></li>
 
             <li class="header">ช่วยเหลือ</li>
-            <li><a href="<?= Url::to(['site/find']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>ค้นสถานบริการ</span></a></li>
+            <li><a href="<?= Url::to(['site/find']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>ค้นหารหัส</span></a></li>
             <li class="divider"></li>
             <li><a href="description.xlsx" target="_blank"><i class="fa fa-circle-o text-green"></i> <span>นิยามตัวชี้วัด</span></a></li>
            <li class="divider"></li>
