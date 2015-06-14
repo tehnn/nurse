@@ -7,11 +7,19 @@
     <td >ลำดับ</td>
     <td >ตัวชีวัด</td>
     <?php
-    $sql = "SELECT a.ampurcode,a.ampurname FROM campur a  WHERE a.changwatcode = 63";
-    $rawAmp = \Yii::$app->db->createCommand($sql)->queryAll();    
+    $pv = 63;
+    
+    $sql = "SELECT a.ampurcode,a.ampurname FROM campur a  WHERE a.changwatcode = $pv";
+    $rawAmp = \Yii::$app->db->createCommand($sql)->queryAll();  
+    
+   
+    
     ?>
     <?php foreach ($rawAmp as $value):?>
-    <td style="text-align: center"><a href="#"><?=$value['ampurname']?></a></td>
+    <?php
+         $url = \yii\helpers\Url::to(['list-pcu','prov'=>$pv,'amp'=>$value['ampurcode']]);
+    ?>
+    <td style="text-align: center"><a href="<?=$url?>"><?=$value['ampurname']?></a></td>
     <?php    endforeach;?>
     <td style="text-align: center"><b>รวม</b></td>
   

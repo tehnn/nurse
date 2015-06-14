@@ -8,5 +8,12 @@ class SukotaiController extends \yii\web\Controller
     {
         return $this->render('index');
     }
+    
+      public function actionListPcu($prov=null,$amp=null){
+        return $this->render('list_pcu',[
+            'prov'=>64,
+            'amp'=>$amp
+        ]);  
+    }
 
 }
