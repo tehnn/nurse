@@ -23,8 +23,8 @@ use yii\helpers\Url;
             <li class="header">รายการ</li>
             <li><a href="<?= Url::to(['site/index']) ?>"><i class="fa fa-circle-o text-orange"></i> <span>ภาพรวมเขต</span></a></li>
 
-            <li><a href="<?= Url::to(['site/upload1']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>ส่งข้อมูล (รพศ/รพท/รพช.)</span></a></li>
-            <li><a href="<?= Url::to(['site/upload2']) ?>"><i class="fa fa-circle-o text-yellow"></i> <span>ส่งข้อมูล (รพ.สต/สอ/สสช.)</span></a></li>
+            <li><a href="<?= Url::to(['site/upload1']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>ส่งข้อมูล (โรงพยาบาล)</span></a></li>
+            <li><a href="<?= Url::to(['site/upload2']) ?>"><i class="fa fa-circle-o text-yellow"></i> <span>ส่งข้อมูล (รพ.สต/สอ/PCU.)</span></a></li>
 
             <li class="header">ช่วยเหลือ</li>
             <li><a href="<?= Url::to(['site/find']) ?>"><i class="fa fa-circle-o text-primary"></i> <span>ค้นหารหัส</span></a></li>

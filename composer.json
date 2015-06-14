@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "2amigos/yii2-gallery-widget": "*",
-        "phpoffice/phpexcel": "dev-develop"
+        "phpoffice/phpexcel": "dev-develop",
+        "fedemotta/yii2-widget-datatables": "*"
 
     },
     "require-dev": {

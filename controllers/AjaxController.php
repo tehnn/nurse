@@ -20,7 +20,7 @@ class AjaxController extends \yii\web\Controller {
             return [];  
         }
         
-        $sql = "SELECT t.* from chospital t where t.hosname like '%$word%' or t.hoscode like '%$word%' ";
+        $sql = "SELECT t.* from chospital2 t where t.hosname like '%$word%' or t.hoscode like '%$word%' ";
         $raw = $this->queryall($sql);
         return $raw;
     }

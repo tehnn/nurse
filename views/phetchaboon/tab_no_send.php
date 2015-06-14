@@ -1,7 +1,7 @@
 <?php
 
 $sql = " SELECT h.hoscode,h.hosname,h.ampurname,h.changwatname from chospital h
-LEFT JOIN (SELECT DISTINCT d.hospcode from data_pcu d ) t on t.hospcode = h.hoscode
+LEFT JOIN (SELECT DISTINCT hospcode from data_pcu  UNION SELECT DISTINCT hospcode from data_hos) t on t.hospcode = h.hoscode
 WHERE t.hospcode IS  NULL   AND   h.changwatname = 'เพชรบูรณ์'
 ORDER BY h.changwatname asc,h.ampurname asc,h.hoscode asc ";
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "220488e90ab0e08dd9db39e4432c09c4",
+    "hash": "4f917f8707a418797ca7120aa66cc141",
     "packages": [
         {
             "name": "2amigos/yii2-gallery-widget",
@@ -184,6 +184,128 @@
                 "responsive",
                 "web"
             ]
+        },
+        {
+            "name": "bower-asset/datatables",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataTables/DataTables.git",
+                "reference": "36929eade30924adfb0acdc9cfa85161d24de6ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataTables/DataTables/zipball/36929eade30924adfb0acdc9cfa85161d24de6ed",
+                "reference": "36929eade30924adfb0acdc9cfa85161d24de6ed",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "media/js/jquery.dataTables.js",
+                    "media/css/jquery.dataTables.css",
+                    "media/images/sort_asc.png",
+                    "media/images/sort_asc_disabled.png",
+                    "media/images/sort_both.png",
+                    "media/images/sort_desc.png",
+                    "media/images/sort_desc_disabled.png"
+                ],
+                "bower-asset-ignore": [
+                    "/.*",
+                    "examples",
+                    "media/unit_testing",
+                    "composer.json",
+                    "dataTables.jquery.json",
+                    "package.json"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.10.8-dev-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "datatables",
+                "javascript",
+                "jquery",
+                "library",
+                "table"
+            ]
+        },
+        {
+            "name": "bower-asset/datatables-bootstrap3",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jowin/Datatables-Bootstrap3.git",
+                "reference": "45802ec4d337bdba6750f03b6472ddbb1d34608c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jowin/Datatables-Bootstrap3/zipball/45802ec4d337bdba6750f03b6472ddbb1d34608c",
+                "reference": "45802ec4d337bdba6750f03b6472ddbb1d34608c",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/datatables": ">=1.9.4"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "BS3/assets/css/datatables.css",
+                    "BS3/assets/images/sort_asc.png",
+                    "BS3/assets/images/sort_asc_disabled.png",
+                    "BS3/assets/images/sort_both.png",
+                    "BS3/assets/images/sort_desc.png",
+                    "BS3/assets/images/sort_desc_disabled.png",
+                    "BS3/assets/js/datatables.js"
+                ],
+                "bower-asset-ignore": [
+                    "BS3/examples/",
+                    "BS3/Datatables.png",
+                    "BS3/index.html"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "README.md"
+            ],
+            "description": "Plugin for Datatables Bootstrap3 UI Compatibility"
+        },
+        {
+            "name": "bower-asset/datatables-tabletools",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataTables/TableTools.git",
+                "reference": "ebbd176fa519646e3ca3f4018087496b800d5e7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataTables/TableTools/zipball/ebbd176fa519646e3ca3f4018087496b800d5e7f",
+                "reference": "ebbd176fa519646e3ca3f4018087496b800d5e7f",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/datatables": ">=1.9.0",
+                "bower-asset/jquery": ">=1.7.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "js/dataTables.tableTools.js",
+                    "css/dataTables.tableTools.css"
+                ],
+                "branch-alias": {
+                    "dev-master": "2.2.2-dev"
+                }
+            }
         },
         {
             "name": "bower-asset/jquery",
@@ -451,17 +573,71 @@
             "time": "2013-11-30 08:25:19"
         },
         {
+            "name": "fedemotta/yii2-widget-datatables",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fedemotta/yii2-widget-datatables.git",
+                "reference": "ee0c70a038302ca414fe01d51732ed217efdc772"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fedemotta/yii2-widget-datatables/zipball/ee0c70a038302ca414fe01d51732ed217efdc772",
+                "reference": "ee0c70a038302ca414fe01d51732ed217efdc772",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/datatables": ">= 1.9.4",
+                "bower-asset/datatables-bootstrap3": "*",
+                "bower-asset/datatables-tabletools": "*",
+                "bower-asset/jquery": ">= 1.7.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "fedemotta\\datatables\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Federico Nicolás Motta",
+                    "email": "fedemotta@gmail.com"
+                }
+            ],
+            "description": "DataTables widget for Yii2",
+            "keywords": [
+                "datatables",
+                "extension",
+                "javascript",
+                "jquery",
+                "library",
+                "table",
+                "yii2"
+            ],
+            "time": "2015-06-08 16:07:23"
+        },
+        {
             "name": "phpoffice/phpexcel",
             "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PHPExcel.git",
-                "reference": "1c26425915aa9dac20c55a9d76af3111e6c53821"
+                "reference": "4f6d009ba5fad66cdbc48c26fe984858db34e138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/1c26425915aa9dac20c55a9d76af3111e6c53821",
-                "reference": "1c26425915aa9dac20c55a9d76af3111e6c53821",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/4f6d009ba5fad66cdbc48c26fe984858db34e138",
+                "reference": "4f6d009ba5fad66cdbc48c26fe984858db34e138",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +684,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2015-05-14 22:51:30"
+            "time": "2015-05-24 13:16:04"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -516,12 +692,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "ac8b475454c120bfb31f5bef475233dd4fb6b626"
+                "reference": "21b7eb31c51d98e9da0543527a0242875f3d92b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/ac8b475454c120bfb31f5bef475233dd4fb6b626",
-                "reference": "ac8b475454c120bfb31f5bef475233dd4fb6b626",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/21b7eb31c51d98e9da0543527a0242875f3d92b9",
+                "reference": "21b7eb31c51d98e9da0543527a0242875f3d92b9",
                 "shasum": ""
             },
             "require": {
@@ -557,10 +733,11 @@
             "description": "Swiftmailer, free feature-rich PHP mailer",
             "homepage": "http://swiftmailer.org",
             "keywords": [
+                "email",
                 "mail",
                 "mailer"
             ],
-            "time": "2015-05-06 16:40:00"
+            "time": "2015-06-06 14:20:09"
         },
         {
             "name": "yiisoft/yii2",
@@ -568,12 +745,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "33c0aec0af6ea852dad71df12ec03a9606df0770"
+                "reference": "a0772d118275c9edfba90010fb750e0ad45777f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/33c0aec0af6ea852dad71df12ec03a9606df0770",
-                "reference": "33c0aec0af6ea852dad71df12ec03a9606df0770",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/a0772d118275c9edfba90010fb750e0ad45777f5",
+                "reference": "a0772d118275c9edfba90010fb750e0ad45777f5",
                 "shasum": ""
             },
             "require": {
@@ -648,7 +825,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-05-14 13:41:36"
+            "time": "2015-06-11 22:55:12"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -656,17 +833,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "29ed43dd05df05cb15431503b66cd5ef2fab8a0d"
+                "reference": "0396fafd62d30dbf83e5f56cc72536ed5ce1d63e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/29ed43dd05df05cb15431503b66cd5ef2fab8a0d",
-                "reference": "29ed43dd05df05cb15431503b66cd5ef2fab8a0d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/0396fafd62d30dbf83e5f56cc72536ed5ce1d63e",
+                "reference": "0396fafd62d30dbf83e5f56cc72536ed5ce1d63e",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
-                "yiisoft/yii2": ">=2.0.4"
+                "yiisoft/yii2": ">=2.0.x-dev"
             },
             "type": "yii2-extension",
             "extra": {
@@ -698,7 +875,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2015-05-12 08:39:27"
+            "time": "2015-06-04 11:00:16"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -706,16 +883,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "c7f59a6db76ae12aef4ddd244b0d02ab76b8a0b8"
+                "reference": "6b2a2b3bb83d4b3dd791f76e64c48973ce01bac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/c7f59a6db76ae12aef4ddd244b0d02ab76b8a0b8",
-                "reference": "c7f59a6db76ae12aef4ddd244b0d02ab76b8a0b8",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/6b2a2b3bb83d4b3dd791f76e64c48973ce01bac6",
+                "reference": "6b2a2b3bb83d4b3dd791f76e64c48973ce01bac6",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "1.0.0"
+                "composer-plugin-api": "^1.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -745,7 +922,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2015-04-29 09:00:02"
+            "time": "2015-06-11 19:55:58"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -801,25 +978,25 @@
     "packages-dev": [
         {
             "name": "bower-asset/typeahead.js",
-            "version": "v0.10.5",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twitter/typeahead.js.git",
-                "reference": "5f198b87d1af845da502ea9df93a5e84801ce742"
+                "reference": "588440f66559714280628a4f9799f0c4eb880a4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twitter/typeahead.js/zipball/5f198b87d1af845da502ea9df93a5e84801ce742",
-                "reference": "5f198b87d1af845da502ea9df93a5e84801ce742",
+                "url": "https://api.github.com/repos/twitter/typeahead.js/zipball/588440f66559714280628a4f9799f0c4eb880a4a",
+                "reference": "588440f66559714280628a4f9799f0c4eb880a4a",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
             },
             "require-dev": {
-                "bower-asset/jasmine-ajax": ">=1.3.1,<1.4",
-                "bower-asset/jasmine-jquery": ">=1.5.2,<1.6",
-                "bower-asset/jquery": ">=1.7,<1.8"
+                "bower-asset/jasmine-ajax": "~1.3.1",
+                "bower-asset/jasmine-jquery": "~1.5.2",
+                "bower-asset/jquery": "~1.7"
             },
             "type": "bower-asset-library",
             "extra": {
@@ -832,12 +1009,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "1dc7404280b32ee661ea65606efcf792be6fc4ca"
+                "reference": "7d786165527ad532b09e306107d682f21f3de67a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1dc7404280b32ee661ea65606efcf792be6fc4ca",
-                "reference": "1dc7404280b32ee661ea65606efcf792be6fc4ca",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/7d786165527ad532b09e306107d682f21f3de67a",
+                "reference": "7d786165527ad532b09e306107d682f21f3de67a",
                 "shasum": ""
             },
             "require": {
@@ -853,7 +1030,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -876,7 +1053,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-04-27 20:30:06"
+            "time": "2015-06-12 13:48:54"
         },
         {
             "name": "phpspec/php-diff",
@@ -963,12 +1140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "b2448aa67657323409e97b5facbf21b498b848e2"
+                "reference": "b9bbead8f827a0eae1dad69e52ad322450a9381b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/b2448aa67657323409e97b5facbf21b498b848e2",
-                "reference": "b2448aa67657323409e97b5facbf21b498b848e2",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/b9bbead8f827a0eae1dad69e52ad322450a9381b",
+                "reference": "b9bbead8f827a0eae1dad69e52ad322450a9381b",
                 "shasum": ""
             },
             "require": {
@@ -1002,7 +1179,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2015-05-10 22:28:14"
+            "time": "2015-06-11 09:39:28"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -1057,16 +1234,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "dbd9a38f43eb605aa6c433f1ffd3c37c2a3ce9d8"
+                "reference": "bc7df9d8fa44b3308cc899ffc8e4204316304e41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/dbd9a38f43eb605aa6c433f1ffd3c37c2a3ce9d8",
-                "reference": "dbd9a38f43eb605aa6c433f1ffd3c37c2a3ce9d8",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/bc7df9d8fa44b3308cc899ffc8e4204316304e41",
+                "reference": "bc7df9d8fa44b3308cc899ffc8e4204316304e41",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/typeahead.js": "0.10.*",
+                "bower-asset/typeahead.js": "0.10.* | ~0.11.0",
                 "phpspec/php-diff": ">=1.0.2",
                 "yiisoft/yii2": ">=2.0.4",
                 "yiisoft/yii2-bootstrap": "~2.0"
@@ -1102,7 +1279,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2015-05-10 22:29:47"
+            "time": "2015-06-07 17:22:13"
         }
     ],
     "aliases": [],

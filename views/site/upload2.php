@@ -8,7 +8,7 @@ use app\models\News;
 <!-- Default box -->
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">ส่งข้อมูล รพ.สต/สอ/สสช</h3>
+        <h3 class="box-title">ส่งข้อมูล รพ.สต/สอ/PCU</h3>
         <div class="box-tools pull-right">
             <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
         </div>

@@ -1,89 +1,68 @@
+<?php
+
+use fedemotta\datatables\DataTables;
+use yii\data\ArrayDataProvider;
+$prov = 67;
+
+?>
 <br>
 <div class="box box-info box-body">ปีงบประมาณ 2558</div>
 <table class="table table-bordered table-striped table-responsive table-hover">
-      <thead>
+    <thead>
         <tr style="background-color: gold">
-            
-    <td >ลำดับ</td>
-    <td >ตัวชีวัด</td>
-    <?php
-    $sql = "SELECT a.ampurcode,a.ampurname FROM campur a  WHERE a.changwatcode = 67";
-    $rawAmp = \Yii::$app->db->createCommand($sql)->queryAll();    
-    ?>
-    <?php foreach ($rawAmp as $value):?>
-    <td style="text-align: center"><a href="#"><?=$value['ampurname']?></a></td>
-    <?php    endforeach;?>
-    <td style="text-align: center"><b>รวม</b></td>
-  
+
+            <td >ลำดับ</td>
+            <td >ตัวชีวัด</td>
+            <?php
+            $sql = "SELECT h.hospcode,h.hospname from chos h where h.province = $prov";
+            $rawhos = \Yii::$app->db->createCommand($sql)->queryAll();
+            ?>
+            <?php foreach ($rawhos as $value): ?>
+                <td style="text-align: center"><?= $value['hospname'] ?></td>
+            <?php endforeach; ?>
+            <td style="text-align: center"><b>รวม</b></td>
+
         </tr>
     </thead>
-<tbody>
-<?php
-    $sql = "SELECT t.id,t.topic
+    <tbody>
+        <?php
+        $sql = "SELECT t.id,t.topic";
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=01) as '01'
+        foreach ($rawhos as $value) {
+            $hospcode = $value['hospcode'];
+            $sql.=",(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
+            from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.hospcode=$hospcode) as '$hospcode' ";
+        }
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=02) as '02'
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=03) as '03'
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=04) as '04'
+        $sql.=",(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
+        from data_hos d WHERE d.kpi =t.id AND d.prov=$prov) as 'all' ";
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=05) as '05'
+        $sql.="from topic_hos t";
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=06) as '06'
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+        ?>
+        <?php foreach ($raw as $value): ?>
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=07) as '07'
+            <tr>
+                <td style="width: 1%"><?= $value['id'] ?></td>
+                <td style="word-break:break-all; width: 50%">
+                    <?= $value['topic'] ?>
+                </td>
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=08) as '08'
+                <?php foreach ($rawhos as $val): ?>
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=09) as '09'
+                    <?php $hospcode = $val['hospcode'] ?>
+                    <td style="text-align: center"><?= $value[$hospcode] ?></td>
+                <?php endforeach; ?>
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=09) as '10'
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id and d.rep=2558 AND d.prov =67 AND d.amp=09) as '11'
+                <td style="text-align: center" ><b><?= $value['all'] ?></b></td>
+            </tr>
+        <?php endforeach; ?>
 
-,(SELECT IF(t.id in (13,14,15,16,17,20),FORMAT(SUM(d.total),0),ROUND(AVG(d.total),2)) 
-from data_hos d WHERE d.kpi =t.id AND d.prov=67) as 'all' 
 
-from topic_hos t";
-    
-    $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-?>
-<?php foreach ($raw as $value):?>
-
-    <tr>
-        <td style="width: 1%"><?=$value['id']?></td>
-        <td style="word-break:break-all; width: 50%">
-           <?=$value['topic']?>
-        </td>
-        <td style="text-align: center"><?=$value['01']?></td>
-        <td style="text-align: center"><?=$value['02']?></td>
-        <td style="text-align: center"><?=$value['03']?></td>
-        <td style="text-align: center"><?=$value['04']?></td>
-         <td style="text-align: center"><?=$value['05']?></td>
-        <td style="text-align: center"><?=$value['06']?></td>
-        <td style="text-align: center"><?=$value['07']?></td>
-        <td style="text-align: center"><?=$value['08']?></td>
-        <td style="text-align: center"><?=$value['09']?></td>
-        <td style="text-align: center"><?=$value['10']?></td>
-        <td style="text-align: center"><?=$value['11']?></td>
-        <td style="text-align: center" ><b><?=$value['all']?></b></td>
-    </tr>
-<?php endforeach;?>
-    
-
-</tbody>
+    </tbody>
 
 </table>
